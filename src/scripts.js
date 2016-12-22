@@ -64,13 +64,31 @@ let theAgeofKnowledge = inventors.reduce((total, inventor) => {
 console.log(theAgeofKnowledge)
 
 // 5. Sort the inventors by years lived
+let theOldest = inventors.sort(function(a,b){
+   let lastPerson = a.passed - a.year;
+   let nextPerson = b.passed - b.year;
+   return lastPerson > nextPerson ? -1 : 1 ;
+});
+console.log(theOldest)
+console.table(theOldest)
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-// https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+// https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris -> go there and opt+cmd+j and play in console
+// const category = document.querySelector('.mw-category');
+// const links = Array.from(document.querySelectorAll('a'));
+// const fancyOf = links.map(link => link.textContent).filter(streetName => streetName.includes('de'));
 
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
+
+let abcSort = people.sort((lastOne, nextOne) => {
+   let [aLast, aFirst] = lastOne.split(', ');
+   let [bLast, bFirst] = lastOne.split(', ');
+   return aLast > bLast ? 1 : -1 ;
+});
+console.log(abcSort)
+
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
